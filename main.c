@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:31:44 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/05 15:42:53 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:43:09 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,32 @@ int	main(int argc, char *argv[])
 		if(validate_input(str) == 0)
 			return(ft_printf("Error\n"),0);
 		stack_a = store_input(str);
-		size_a = check_size(stack_a);
+		
 		stack_b = create_stack_b(str);
-		size_b = check_size(stack_a);
+		size_b = check_size(stack_b);
+		
+
+		
+		// ss(stack_a,stack_b);
 		
 		// sa(stack_a, size_a);
-		// pa(&stack_a, &stack_b);
-		// pa(&stack_a, &stack_b);
-		// size_a = check_size(stack_a);
-		// pa(&stack_a, &stack_b);
-		pa(&stack_a, &stack_b);
-		// sb(stack_b,size_a);
-		// sa(stack_a, size_a);
-		// pb(&stack_a, &stack_b);
-		// pb(&stack_a, &stack_b);
-
-
-		// ss(stack_a,stack_b,size);
+		// sb(stack_b,size_b);
+		// ra(stack_a);
+		// rb(stack_b);
+		// rr(stack_a,stack_b);
+		// rra(stack_a);
+		// rrb(stack_b);
 		
-		// ft_printf("%d\n",size_a);
+		pb(&stack_a, &stack_b);
+		pb(&stack_a, &stack_b);
+		pb(&stack_a, &stack_b);
+		pb(&stack_a, &stack_b);
+		// pb(&stack_a, &stack_b);
 
+		// sb(stack_b,size_b);
+		// rrr(stack_a, stack_b);
+		// rrb(stack_b);
+		// pa(&stack_a, &stack_b);
 		while (stack_a[i])                //b_stak = {42,43,44,45}
 			ft_printf("%d ",stack_a[i++]);
 		i = 0;
@@ -68,9 +74,7 @@ int	main(int argc, char *argv[])
 		
 		while (stack_b[i])
 			ft_printf("%d ",stack_b[i++]);
-		
-		
-		
+		ft_printf("\n");
 	}
 	
 	return(0);

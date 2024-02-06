@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:13:47 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/05 15:44:51 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:07:18 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,51 +16,87 @@ void	sa(int *stack_a,int size) //Works
 {
 	int	temp;
 	
+	size = check_size(stack_a);
 	if(size >= 2)
 	{
 		temp = stack_a[0];
 		stack_a[0] = stack_a[1];
 		stack_a[1] = temp;
+		ft_printf("sa\n");
 	}
-	else
-		ft_printf("Error,les than 2 numbers in stack A!\n");
+	
 }
 
 
-void pa(int **stack_a, int **stack_b)
+void	pa(int **stack_a, int **stack_b)
 {
-
     int i;
-    int size_a = check_size(*stack_a);
-    int size_b = check_size(*stack_b);
+
 	
-    if (size_b > 0)
-    {	
-	
-        int *new_stack_a = expand_stack(*stack_a, size_a);
-		// int j = 0;
-    	// while ((*stack_b)[j])
-    	// {
-    	//     ft_printf("%d ", (*stack_b)[j++]);
-	    // }
-    	// ft_printf("\n");
+    if (check_size(*stack_b) > 0)
+    {		
+        int *new_stack_a = expand_stack(*stack_a);
         if (new_stack_a == NULL)
             return;
-        free(*stack_a);
+        // free(*stack_a);
         *stack_a = new_stack_a;
-
-        i = size_a;
+        i = check_size(*stack_a);
         while (i > 0)
         {
             (*stack_a)[i] = (*stack_a)[i - 1];
             i--;
         }
         (*stack_a)[0] = (*stack_b)[0];
-		
-        int *new_stack_b = delete_index(*stack_b, size_b);
+
+        int *new_stack_b = delete_index(*stack_b);
         if (new_stack_b == NULL)
             return;
-        free(*stack_b);
+        // free(*stack_b);
         *stack_b = new_stack_b;	
+        ft_printf("pa\n");
     }
+}
+
+void    ra(int *stack_a)
+{
+	int	size;
+	int	i;
+	int first_elem;
+
+	i = 0;
+	size = check_size(stack_a);
+	if(size > 1)
+	{
+		first_elem = stack_a[0];
+		while (i < size - 1)
+		{
+			stack_a[i] = stack_a[i + 1];
+			i++;
+		}
+		stack_a[size - 1] = first_elem;
+		ft_printf("ra\n");
+	}
+	
+}
+
+void    rra(int *stack_a)
+{
+	int	size;
+	int	i;
+	int last_elem;
+	
+	size = check_size(stack_a);
+	if(size > 1 )
+	{
+		last_elem = stack_a[size - 1];
+		i = size - 1;
+		while (i > 0)
+		{
+			stack_a[i] = stack_a[i - 1];
+			i--;
+		}
+		stack_a[0] = last_elem;
+		ft_printf("rra\n");
+	}
+	
 }

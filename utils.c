@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:39:08 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/05 12:40:23 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:22:53 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int *store_input(char *str)//works
 	
 	i = 0;
 	j = 0;
-	stack_a = (int*) malloc(count_nb(str) * sizeof(int));
+	stack_a = malloc(count_nb(str) * sizeof(int));
 	if(!stack_a)
 		return(0);
 	while (str[i])
@@ -79,7 +79,6 @@ int *store_input(char *str)//works
 			i = i + ft_strlen_mod(&str[i]);
 		}
 	}
-	stack_a[j] = '\0';
 	return(stack_a);
 }
 
@@ -87,13 +86,13 @@ int	*create_stack_b(char *str) //works
 {
 	int *stack_b;
 
-	stack_b = (int*) malloc(count_nb(str) * sizeof(int));
+	stack_b = malloc(count_nb(str) * sizeof(int));
 	if(!stack_b)
 		return (NULL);
-	stack_b[0] = 42;
-	stack_b[1] = 43;
-	stack_b[2] = 44;
-	stack_b[3] = 45;
+	// stack_b[0] = 42;
+	// stack_b[1] = 43;
+	// stack_b[2] = 44;
+	// stack_b[3] = 45;
 	return (stack_b);
 }
 
@@ -109,5 +108,5 @@ int	check_size(int *stack)//works
 		i++;
 		count++;
 	}
-	return(i);
+	return(count);
 }

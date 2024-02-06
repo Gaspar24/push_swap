@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:24:03 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/05 14:27:37 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:01:50 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,20 @@ int		ft_strlen_mod(char *str);
 int		*store_input(char *str);
 char	*extract_nb(char *str ,int start);
 int		*create_stack_b(char *str);
-int		check_size(int *stack_b);
-int		*expand_stack(int *stack, int size);
-int		*delete_index(int *stack, int size);
+int		check_size(int *stack);
+int		*expand_stack(int *stack);
+int		*delete_index(int *stack);
 void	sa(int *stack_a, int size);
 void	sb(int *stack_b, int size);
 void	pa(int **stack_a, int **stack_b);
 void	pb(int **stack_a, int **stack_b);
-void	ss(int *stack_a, int *stack_b, int size);
+void	ss(int *stack_a, int *stack_b);
+void    ra(int *stack_a);
+void    rb(int *stack_b);
+void	rr(int *stack_a, int *stack_b);
+void    rra(int *stack_a);
+void    rrb(int *stack_b);
+void	rrr(int *stack_a, int *stack_b);
 
 
 

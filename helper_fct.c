@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:06:47 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/05 15:42:36 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/06 13:44:06 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,15 +57,15 @@ int ft_strlen_mod(char *str)
 	return(i);
 }
 
-int	*expand_stack(int *stack, int size)
+int	*expand_stack(int *stack)
 {
     int i;
     int	*new_stack;
 	int new_size;
 
     i = 0;
-    new_size = size + 1;
-    new_stack = malloc(new_size * sizeof(int*));
+    new_size = check_size(stack) + 1;
+    new_stack = malloc(new_size * sizeof(int));
     if(!new_stack)
         return(0);
     while (i < new_size - 1) 
@@ -73,12 +73,12 @@ int	*expand_stack(int *stack, int size)
         new_stack[i] = stack[i];
         i++;
     }
-    // new_stack[i] = 0; 
+	// free(stack);
     return(new_stack);	
 }
 
 
-int *delete_index(int *stack, int size)
+int *delete_index(int *stack)
 {
 	int i;
     int	*new_stack;
@@ -87,8 +87,8 @@ int *delete_index(int *stack, int size)
     
     i = 1;
 	j = 0;
-    new_size = size - 1;
-    new_stack =  malloc(new_size * sizeof(int*));
+    new_size = check_size(stack) - 1;
+    new_stack =  malloc(new_size * sizeof(int));
     if(!new_stack)
         return(0);
     while (stack[i]) 
@@ -97,5 +97,7 @@ int *delete_index(int *stack, int size)
         i++;
 		j++;
     }
+	
+	// free(stack);
     return(new_stack);	
 }
