@@ -6,100 +6,99 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:13:53 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/06 13:42:03 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/07 13:44:54 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(int *stack_b,int size)
+void	sb(IntArr *stack_b) //Works
 {
 	int	temp;
-    size = check_size(stack_b);
-	if(size > 1)
+	
+	if(stack_b->size >= 2)
 	{
-		temp = stack_b[0];
-		stack_b[0] = stack_b[1];
-		stack_b[1] = temp;
-		ft_printf("sb\n");
+		temp = stack_b->array[0];
+		stack_b->array[0] = stack_b->array[1];
+		stack_b->array[1] = temp;
+		ft_printf("sa\n");
 	}
-
+	
 }
 
-void pb(int **stack_a, int **stack_b)
+void pb(IntArr *stack_a, IntArr *stack_b)
 {
     int i;
-    int size_b;
+    IntArr *new_stack_b;
+    IntArr *new_stack_a;
 
-    
-    if (check_size(*stack_a) > 0)
+    if (stack_a->size > 0)
     {
-        int *new_stack_b = expand_stack(*stack_b);
-        if (new_stack_b == NULL)
+        new_stack_b = expand_stack(stack_b);
+        if (!new_stack_b)
             return;
-        // free(stack_b);
-        *stack_b = new_stack_b;
-        size_b = check_size(*stack_b);
-        ft_printf(" size_b = %d\n",size_b);
-        i = size_b;
+        free(stack_b->array);
+        stack_b->array = new_stack_b->array;
+        stack_b->size = new_stack_b->size;
+        free(new_stack_b);
+
+        i = stack_b->size - 1;
         while (i > 0)
         {
-            (*stack_b)[i] = (*stack_b)[i - 1];
+            stack_b->array[i] = stack_b->array[i - 1];
             i--;
         }
-        (*stack_b)[0] = (*stack_a)[0];
-        int *new_stack_a = delete_index(*stack_a);
-        if (new_stack_a == NULL)
+        stack_b->array[0] = stack_a->array[0];
+
+        new_stack_a = delete_index(stack_a);
+        if (!new_stack_a)
             return;
-        // free(*stack_a);
-        *stack_a = new_stack_a;
-        int size_a = check_size(*stack_a);
-        ft_printf(" size_a = %d\n",size_a);
-        ft_printf("pb\n");
+        free(stack_a->array);
+        stack_a->array = new_stack_a->array;
+        stack_a->size = new_stack_a->size;
+        free(new_stack_a);
     }
 }
 
-void    rb(int *stack_b)
+void    rb(IntArr *stack_b)
 {
-	int	size;
+	// int	size;
 	int	i;
 	int first_elem;
 
 	i = 0;
-	size = check_size(stack_b);
-	if(size > 1)
+	// size = check_size(stack_a);
+	if(stack_b->size > 1)
 	{
-		first_elem = stack_b[0];
-		while (i < size - 1)
+		first_elem = stack_b->array[0];
+		while (i < stack_b->size - 1)
 		{
-			stack_b[i] = stack_b[i + 1];
+			stack_b->array[i] = stack_b->array[i + 1];
 			i++;
 		}
-		stack_b[size - 1] = first_elem;
-        ft_printf("rb\n");
+		stack_b->array[stack_b->size - 1] = first_elem;
+		ft_printf("ra\n");
 	}
-	
 	
 }
 
-void    rrb(int *stack_b)
+void    rrb(IntArr *stack_b)
 {
-	int	size;
+
 	int	i;
 	int last_elem;
 	
-	size = check_size(stack_b);
-	if(size > 1 )
+	if(stack_b->size > 1 )
 	{
-		last_elem = stack_b[size - 1];
-		i = size - 1;
+		last_elem = stack_b->array[stack_b->size - 1];
+		i = stack_b->size - 1;
 		while (i > 0)
 		{
-			stack_b[i] = stack_b[i - 1];
+			stack_b->array[i] = stack_b->array[i - 1];
 			i--;
 		}
-		stack_b[0] = last_elem;
-        ft_printf("rrb\n");
+		stack_b->array[0] = last_elem;
+		ft_printf("rra\n");
 	}
 	
 }

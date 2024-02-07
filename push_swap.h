@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:24:03 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/06 13:01:50 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:39:33 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 #include <limits.h>
 #include "../libftprintf/ft_printf.h"
 
+typedef struct 
+{
+    int *array;
+    int size;
+}	IntArr;
+
+
 int		validate_input(char *str);
 int		count_nb(char *str);
 int		ft_atoi(char *str);
@@ -24,23 +31,24 @@ int		check_for_doubles(char *str);
 int		ft_strlen(char *str);
 char    *create_str(int argc, char *argv[]);
 int		ft_strlen_mod(char *str);
-int		*store_input(char *str);
-char	*extract_nb(char *str ,int start);
-int		*create_stack_b(char *str);
+IntArr 	create_stack_a(char *str);
+char	*extract_nb(char *str, int start);
+IntArr 	create_stack_b(void);
 int		check_size(int *stack);
-int		*expand_stack(int *stack);
-int		*delete_index(int *stack);
-void	sa(int *stack_a, int size);
-void	sb(int *stack_b, int size);
-void	pa(int **stack_a, int **stack_b);
-void	pb(int **stack_a, int **stack_b);
-void	ss(int *stack_a, int *stack_b);
-void    ra(int *stack_a);
-void    rb(int *stack_b);
-void	rr(int *stack_a, int *stack_b);
-void    rra(int *stack_a);
-void    rrb(int *stack_b);
-void	rrr(int *stack_a, int *stack_b);
+IntArr	*expand_stack(IntArr *stack);
+IntArr	*delete_index(IntArr *stack);
+void	sa(IntArr *stack_a);
+void	sb(IntArr *stack_b);
+void	pa(IntArr *stack_a, IntArr *stack_b);
+void 	pb(IntArr *stack_a,IntArr *stack_b);
+void	ss(IntArr *stack_a, IntArr *stack_b);
+void    ra(IntArr *stack_a);
+void    rb(IntArr *stack_b);
+void 	rr(IntArr *stack_a, IntArr *stack_b);
+void    rra(IntArr *stack_a);
+void    rrb(IntArr *stack_b);
+void	rrr(IntArr *stack_a, IntArr *stack_b);
+void	two_numbers(IntArr *stack_a);
 
 
 
