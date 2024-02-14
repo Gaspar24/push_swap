@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:13:47 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/07 14:41:15 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:03:27 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void pa(IntArr *stack_a, IntArr *stack_b)
         stack_b->array = new_stack_b->array;
         stack_b->size = new_stack_b->size;
         free(new_stack_b);
+		ft_printf("pa\n");
     }
 }
 

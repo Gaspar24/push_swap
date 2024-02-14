@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:13:53 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/07 13:44:54 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/08 15:03:08 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,16 @@ void pb(IntArr *stack_a, IntArr *stack_b)
         stack_a->array = new_stack_a->array;
         stack_a->size = new_stack_a->size;
         free(new_stack_a);
+		ft_printf("pb\n");
     }
 }
 
 void    rb(IntArr *stack_b)
 {
-	// int	size;
 	int	i;
 	int first_elem;
 
 	i = 0;
-	// size = check_size(stack_a);
 	if(stack_b->size > 1)
 	{
 		first_elem = stack_b->array[0];
@@ -79,7 +78,6 @@ void    rb(IntArr *stack_b)
 		stack_b->array[stack_b->size - 1] = first_elem;
 		ft_printf("ra\n");
 	}
-	
 }
 
 void    rrb(IntArr *stack_b)
