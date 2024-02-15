@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:28:58 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/14 16:06:07 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:12:05 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,26 +59,24 @@ void three_numbers(IntArr *stack_a)
 }
 
 
-// void five_numbers(IntArr *stack_a, IntArr *stack_b)
-// {
-// 	int i;
-	
-// 	i = stack_a->size;
-// 	while(i > 3)
-// 	{
-// 		pb(stack_a, stack_b);
-// 		i--;
-// 	}
-// 	three_numbers(stack_a);
-// 	two_numbers(stack_b);
-// 	i = 2;
-// 	while (i > 0)
-// 	{
-// 		pa(stack_a,stack_b);
-// 		i--;
-// 	}
-		
-	
-// }
+void	five_numbers(IntArr *stack_a, IntArr *stack_b)
+{
+	int	min_a;
+	int	max_a;
+
+	if (stack_is_sorted(stack_a))
+	{
+		max_a = find_max(stack_a);
+		move_to_a(stack_a, get_index(stack_a, max_a));
+		pb(stack_a, stack_b);
+		min_a = find_min(stack_a);
+		move_to_a(stack_a, get_index(stack_a, min_a));
+		pb(stack_a, stack_b);
+		three_numbers(stack_a);
+		pa(stack_a, stack_b);
+		pa(stack_a, stack_b);
+		ra(stack_a);
+	}
+}
 
 

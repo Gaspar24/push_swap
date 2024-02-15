@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:24:03 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/15 14:16:15 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:56:35 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int		find_max(IntArr *stack);
 int		find_min(IntArr *stack);
 void	two_numbers(IntArr *stack);
 void	three_numbers(IntArr *stack_a);
+void	five_numbers(IntArr *stack_a, IntArr *stack_b);
 void	unlimited_numbers(IntArr *stack_a, IntArr *stack_b);
 
 

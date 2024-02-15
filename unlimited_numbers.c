@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:37:06 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/15 14:19:14 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:50:33 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	divide_and_push_to_b(IntArr *stack_a, IntArr *stack_b, int chunk_size)
 	{
 		while (in_the_lowest_chunk(stack_a->array[0],sorted_a,chunk_size) == 0)
 			ra(stack_a);
-		pa(stack_a,stack_b);
+		pb(stack_a,stack_b);
 		count++;
 	}
 	free(sorted_a.array);
@@ -82,7 +82,7 @@ void push_rest_to_a(IntArr *stack_a, IntArr *stack_b, int total_size, int chunk_
 		while (left_in_chunk > 0)
 		{
 			move_to_b(stack_b, get_index(stack_b, find_max(stack_b)));
-			pa(stack_a,stack_a);
+			pa(stack_a,stack_b);
 			left_in_chunk--;
 		}
 		left_in_chunk = chunk_size;
@@ -104,31 +104,10 @@ void	unlimited_numbers(IntArr *stack_a, IntArr *stack_b)
 			last_chunk_size = divide_and_push_to_b(stack_a, stack_b, chunk_size);
 		while (last_chunk_size > 0)
 		{
-			move_to_a(stack_b,get_index(stack_b,find_max(stack_b)));
+			move_to_b(stack_b,get_index(stack_b,find_max(stack_b)));
 			pa(stack_a, stack_b);
 			last_chunk_size--;
 		}
 		push_rest_to_a(stack_a, stack_b, total_size, chunk_size);
 	}
 }
-// void	push_swap_unlimited_v6(t_stack *a, t_stack *b)
-// {
-// 	int	last_chunk_size;
-// 	int	chunk_size;
-// 	int	total_size;
-
-// 	total_size = a->s_size;
-// 	chunk_size = 10 + (total_size - 100) / 15;
-// 	if (check_if_stack_sorted(*a) == 0)
-// 	{
-// 		while (a->s_size > 0)
-// 			last_chunk_size = divide_and_push_to_b(a, b, chunk_size);
-// 		while (last_chunk_size > 0)
-// 		{
-// 			move_to_top_of_b(b, get_index_of_element(*b, get_max_in_stack(*b)));
-// 			pa(a, b);
-// 			last_chunk_size--;
-// 		}
-// 		push_rest_to_a(a, b, total_size, chunk_size);
-// 	}
-// }

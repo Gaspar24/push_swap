@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:31:44 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/15 14:22:48 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/15 15:22:10 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ int	main(int argc, char *argv[])
 			return(ft_printf("Error\n"),0);
 		stack_a = create_stack_a(str);
 		stack_b = create_stack_b();
+		if(!stack_is_sorted(&stack_a))
+		{
+			if(stack_a.size == 2)
+				two_numbers(&stack_a);
+			if(stack_a.size == 3)
+				three_numbers(&stack_a);
+			// if(stack_a.size == 5)
+			// 	five_numbers(&stack_a, &stack_b);
+			else
+				unlimited_numbers(&stack_a, &stack_b);
+		
+		}	
 	
 	}
 	else if(argc > 2)
@@ -44,21 +56,15 @@ int	main(int argc, char *argv[])
 				two_numbers(&stack_a);
 			if(stack_a.size == 3)
 				three_numbers(&stack_a);
+			// if(stack_a.size == 5)
+			// 	five_numbers(&stack_a, &stack_b);
 			else
 				unlimited_numbers(&stack_a, &stack_b);
 		
 		}	
 		
-		i = 0;
-		while (i < stack_a.size)
-			ft_printf("%d ",stack_a.array[i++]);
-		ft_printf("\n");
+	
 		
-		// i = 0;
-		// while (i < stack_b.size)
-		// 	ft_printf("%d ",stack_b.array[i++]);
-		// ft_printf("\n");
-
 	}
 
 	return(0);
