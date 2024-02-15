@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:39:08 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/07 13:02:24 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/15 13:46:36 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,22 +93,10 @@ IntArr create_stack_b(void) //works
 
     stack_b.array = NULL;
     stack_b.size = 0;
-	
+
 	stack_b.array = (int *)malloc(sizeof(int));
 	if(!stack_b.array)
-		return (stack_b);
-	// stack_b.array[0]= 42;
-	// stack_b.array[1] = 43;
-	// stack_b.array[2] = 44;
-	// stack_b.array[3] = 45;
-	// int i = 0;
-	// while (stack_b.array[i])
-	// {
-
-	// 	stack_b.size += 1;
-	// 	i++;
-	// }
-	
+		return (stack_b);	
 	return (stack_b);
 }
 
@@ -125,5 +113,5 @@ int	check_size(int *stack)//works
 		count++;
 	}
 	return(count);
-	// return sizeof(stack) / sizeof(stack[0]);
+	
 }

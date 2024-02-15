@@ -6,11 +6,12 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:31:44 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/14 16:03:21 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:22:48 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 int	main(int argc, char *argv[])
 {
@@ -43,10 +44,9 @@ int	main(int argc, char *argv[])
 				two_numbers(&stack_a);
 			if(stack_a.size == 3)
 				three_numbers(&stack_a);
-			// if(stack_a.size == 5)
-			// 	five_numbers(&stack_a, &stack_a);
-			
-			
+			else
+				unlimited_numbers(&stack_a, &stack_b);
+		
 		}	
 		
 		i = 0;
@@ -60,6 +60,6 @@ int	main(int argc, char *argv[])
 		// ft_printf("\n");
 
 	}
-	
+
 	return(0);
 }
