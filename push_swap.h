@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:24:03 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/15 14:56:35 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/17 13:52:41 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		check_size(int *stack);
 IntArr	*expand_stack(IntArr *stack);
 IntArr	*delete_index(IntArr *stack);
 int 	get_index(IntArr *stack, int elem);
-int		stack_is_sorted(IntArr *stack_a);
+int		stack_is_sorted(IntArr *stack);
 int 	get_index(IntArr *stack, int elem);
 int		get_next_smallest(IntArr *stack, int smallest);
 void	move_to_b(IntArr *stack_b, int index);

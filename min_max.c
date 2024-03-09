@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 13:42:14 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/15 13:47:01 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/17 15:29:38 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,22 @@
 
 int find_max(IntArr *stack)
 {
-	int i;
-	int j;
-	int temp;
-	
-	i = 0;
-	while(i < stack->size)
+	int	max;
+	int	index;
+
+	max = 0;
+	if (stack->array != NULL)
 	{
-		j = 0;
-		while (j < stack->size -i - 1)
+		max = stack->array[0];
+		index = 1;
+		while (index < stack->size)
 		{
-			if(stack->array[j] > stack->array[j + 1])
-			{
-				temp = stack->array[j];
-				stack->array[j] = stack->array[j + 1];
-				stack->array[j + 1] = temp;
-			}
-			j++;
+			if (max < stack->array[index])
+				max = stack->array[index];
+			index++;
 		}
-		i++;
 	}
-	return (stack->array[stack->size - 1]);
+	return (max);
 }
 // int	find_max_index(IntArr *stack)
 // {
@@ -53,27 +48,22 @@ int find_max(IntArr *stack)
 
 int	find_min(IntArr *stack)
 {
-	int i;
-	int j;
-	int temp;
-	
-	i = 0;
-	while(i < stack->size)
+	int	min;
+	int	index;
+
+	min = 0;
+	if (stack->array != NULL)
 	{
-		j = 0;
-		while (j < stack->size -i - 1)
+		min = stack->array[0];
+		index = 1;
+		while (index < stack->size)
 		{
-			if(stack->array[j] < stack->array[j + 1])
-			{
-				temp = stack->array[j];
-				stack->array[j] = stack->array[j + 1];
-				stack->array[j + 1] = temp;
-			}
-			j++;
+			if (min > stack->array[index])
+				min = stack->array[index];
+			index++;
 		}
-		i++;
 	}
-	return (stack->array[stack->size - 1]);
+	return (min);
 }
 
 // int	find_min_index(IntArr *stack)
@@ -91,16 +81,24 @@ int	find_min(IntArr *stack)
 	
 // }
 
-int stack_is_sorted(IntArr *stack_a)
+int stack_is_sorted(IntArr *stack)
 {
-	int i;
-	
-	i = 0;
-	while(i < stack_a->size - 1)
+	int	previous_element;
+	int	sorted;
+	int	index;
+
+	sorted = 1;
+	if (stack->size > 0)
 	{
-		if(stack_a->array[i] > stack_a->array[i + 1])
-			return (0);
-		i++;
+		previous_element = stack->array[0];
+		index = 1;
+		while (index < stack->size)
+		{
+			if (previous_element > stack->array[index])
+				sorted = 0;
+			previous_element = stack->array[index];
+			index++;
+		}
 	}
-	return (1);
+	return (sorted);
 }

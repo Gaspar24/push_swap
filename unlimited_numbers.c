@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:37:06 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/15 14:50:33 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:13:45 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	unlimited_numbers(IntArr *stack_a, IntArr *stack_b)
 
 	total_size = stack_a->size;
 	chunk_size = 10 + (total_size - 100) / 15;
-	if(stack_is_sorted(stack_a) == 0)
+	if(!stack_is_sorted(stack_a))
 	{
 		while (stack_a->size > 0)
 			last_chunk_size = divide_and_push_to_b(stack_a, stack_b, chunk_size);

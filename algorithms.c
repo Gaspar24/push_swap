@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:28:58 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/15 15:12:05 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/02/17 15:40:14 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	five_numbers(IntArr *stack_a, IntArr *stack_b)
 	int	min_a;
 	int	max_a;
 
-	if (stack_is_sorted(stack_a))
+	if (!stack_is_sorted(stack_a))
 	{
 		max_a = find_max(stack_a);
 		move_to_a(stack_a, get_index(stack_a, max_a));
@@ -78,5 +78,3 @@ void	five_numbers(IntArr *stack_a, IntArr *stack_b)
 		ra(stack_a);
 	}
 }
-
-
