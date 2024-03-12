@@ -6,18 +6,17 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:26:59 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/17 15:28:00 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:33:46 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_index(IntArr *stack, int elem)
+int	get_index(IntArr *stack, int elem)
 {
 	int	index;
-	
+
 	index = 0;
-	
 	while (stack->array[index] != elem)
 		index++;
 	return (index);
@@ -30,7 +29,7 @@ void	move_to_a(IntArr *stack_a, int index)
 
 	dist_up = index;
 	dist_down = stack_a->size - index;
-	if(dist_up <= dist_down)
+	if (dist_up <= dist_down)
 	{
 		while (dist_up > 0)
 		{
@@ -47,6 +46,7 @@ void	move_to_a(IntArr *stack_a, int index)
 		}
 	}
 }
+
 void	move_to_b(IntArr *stack_b, int index)
 {
 	int	dist_up;
@@ -54,7 +54,7 @@ void	move_to_b(IntArr *stack_b, int index)
 
 	dist_up = index;
 	dist_down = stack_b->size - index;
-	if(dist_up <= dist_down)
+	if (dist_up <= dist_down)
 	{
 		while (dist_up > 0)
 		{
@@ -76,14 +76,14 @@ int	get_next_smallest(IntArr *stack, int smallest)
 {
 	int	i;
 	int	next_smallest;
-	
+
 	next_smallest = find_max(stack);
 	i = 0;
 	while (i < stack->size)
 	{
-		if(stack->array[i] > smallest && stack->array[i] < next_smallest)
+		if (stack->array[i] > smallest && stack->array[i] < next_smallest)
 			next_smallest = stack->array[i];
 		i++;
 	}
-	return(next_smallest);
+	return (next_smallest);
 }

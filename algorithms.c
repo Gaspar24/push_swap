@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:28:58 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/17 15:40:14 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:13:10 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,40 @@
 
 void	two_numbers(IntArr *stack)
 {
-	if(stack->array[0] < stack->array[1])
+	if (stack->array[0] < stack->array[1])
 		return ;
 	else
 		sa(stack);
 }
 
-void three_numbers(IntArr *stack_a)
+void	three_numbers(IntArr *stack_a)
 {
-// 	int	biggest_index;
-	
-// 	biggest_index = find_max(stack_a);
-	
-// 	if(biggest_index == stack_a->array[0])
-// 		ra(stack_a);
-// 	else if(stack_a->array[1] == biggest_index)
-// 		rra(stack_a);
-// 	if(stack_a->array[0] > stack_a->array[1])
-// 		sa(stack_a);
-		
-	if(stack_a->array[0] > stack_a->array[1] && stack_a->array[1] > stack_a->array[2])
+	if (stack_a->array[0] > stack_a->array[1]
+		&& stack_a->array[1] > stack_a->array[2])
 	{
 		sa(stack_a);
 		rra(stack_a);
 	}
-	else if(stack_a->array[0] > stack_a->array[1] && stack_a->array[1] < stack_a->array[2] && stack_a->array[0] > stack_a->array[2])
-	{
+	else if (stack_a->array[0] > stack_a->array[1] && stack_a->array[1]
+		< stack_a->array[2] && stack_a->array[0] > stack_a->array[2])
 		ra(stack_a);
-	}
-	else if(stack_a->array[0] > stack_a->array[1] && stack_a->array[1] < stack_a->array[2] && stack_a->array[0] < stack_a->array[2])
+	else if (stack_a->array[0] > stack_a->array[1] && stack_a->array[1]
+		< stack_a->array[2] && stack_a->array[0] < stack_a->array[2])
 	{
 		sa(stack_a);
 	}
-	else if(stack_a->array[0] < stack_a->array[1] && stack_a->array[1] > stack_a->array[2] && stack_a->array[0] < stack_a->array[2])
+	else if (stack_a->array[0] < stack_a->array[1] && stack_a->array[1]
+		> stack_a->array[2] && stack_a->array[0] < stack_a->array[2])
 	{
 		rra(stack_a);
 		sa(stack_a);
 	}
-	else if(stack_a->array[0] < stack_a->array[1] && stack_a->array[1] > stack_a->array[2] && stack_a->array[0] > stack_a->array[2])
+	else if (stack_a->array[0] < stack_a->array[1] && stack_a->array[1]
+		> stack_a->array[2] && stack_a->array[0] > stack_a->array[2])
 	{
-		// sa(stack_a);
 		rra(stack_a);
 	}
 }
-
 
 void	five_numbers(IntArr *stack_a, IntArr *stack_b)
 {

@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:06:47 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/07 13:36:39 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:15:34 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,73 +39,71 @@ int	ft_atoi(char *str)
 
 int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
-int ft_strlen_mod(char *str)
+int	ft_strlen_mod(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while ((str[i] != '\t' && str[i] != ' ' && str[i] != '\n') && str[i])
 		i++;
-	return(i);
+	return (i);
 }
 
-IntArr *expand_stack(IntArr *stack)
+IntArr	*expand_stack(IntArr *stack)
 {
-    int i;
-    IntArr *new_stack = malloc(sizeof(IntArr));
+	int		i;
+	IntArr	*new_stack;
 
-    if (!new_stack)
-        return NULL;
-    i = 0;
-    new_stack->size = stack->size + 1;
-    new_stack->array = malloc(new_stack->size * sizeof(int));
-
-    if (!new_stack->array)
+	new_stack = malloc(sizeof(IntArr));
+	if (!new_stack)
+		return (NULL);
+	i = 0;
+	new_stack->size = stack->size + 1;
+	new_stack->array = malloc(new_stack->size * sizeof(int));
+	if (!new_stack->array)
 	{
-        free(new_stack);
-        return NULL;
-    }
-
-    while (i < stack->size)
+		free(new_stack);
+		return (NULL);
+	}
+	while (i < stack->size)
 	{
-        new_stack->array[i] = stack->array[i];
-        i++;
-    }
-    return new_stack;
+		new_stack->array[i] = stack->array[i];
+		i++;
+	}
+	return (new_stack);
 }
 
-IntArr *delete_index(IntArr *stack)
+IntArr	*delete_index(IntArr *stack)
 {
-    int i;
-	int j;
-    IntArr *new_stack = malloc(sizeof(IntArr));
+	int		i;
+	int		j;
+	IntArr	*new_stack;
 
-    if (!new_stack)
-        return NULL;
-
-    i = 1;
-    j = 0;
-    new_stack->size = stack->size - 1;
-    new_stack->array = malloc(new_stack->size * sizeof(int));
-
-    if (!new_stack->array) {
-        free(new_stack);
-        return NULL;
-    }
-
-    while (i < stack->size) {
-        new_stack->array[j] = stack->array[i];
-        i++;
-        j++;
-    }
-
-    return new_stack;
+	new_stack = malloc(sizeof(IntArr));
+	if (!new_stack)
+		return (NULL);
+	i = 1;
+	j = 0;
+	new_stack->size = stack->size - 1;
+	new_stack->array = malloc(new_stack->size * sizeof(int));
+	if (!new_stack->array)
+	{
+		free(new_stack);
+		return (NULL);
+	}
+	while (i < stack->size)
+	{
+		new_stack->array[j] = stack->array[i];
+		i++;
+		j++;
+	}
+	return (new_stack);
 }

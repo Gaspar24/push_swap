@@ -6,41 +6,42 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:39:08 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/15 13:46:36 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:31:43 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int count_nb(char *str)//works
+int	count_nb(char *str)//works
 {
-    int	i;
-    int nb_count;
-    int flag;
+	int	i;
+	int	nb_count;
+	int	flag;
 
-    flag = 0;
-    i = 0;
-    nb_count = 0;
-    while (str[i])
-    {
-        while ((str[i] >= '0' && str[i] <='9') || str[i] == '-' || str[i] == '+')
-        {
-            flag = 1;
-            i++;
-        }
-        if (flag)
-        {
-            nb_count += 1;
-            flag = 0; 
-        }
-        while (str[i] && !((str[i] >= '0' && str[i] <='9') || str[i] == '-' || str[i] == '+'))
-            i++;
-    }
-    return (nb_count);
+	flag = 0;
+	i = 0;
+	nb_count = 0;
+	while (str[i])
+	{
+		while ((str[i] >= '0' && str[i] <= '9')
+			|| str[i] == '-' || str[i] == '+')
+		{
+			flag = 1;
+			i++;
+		}
+		if (flag)
+		{
+			nb_count += 1;
+			flag = 0;
+		}
+		while (str[i] && !((str[i] >= '0' && str[i] <= '9')
+				|| str[i] == '-' || str[i] == '+'))
+			i++;
+	}
+	return (nb_count);
 }
 
-char	*extract_nb(char *str ,int start)//works
+char	*extract_nb(char *str, int start)//works
 {
 	int		i;
 	char	*nb;
@@ -48,55 +49,53 @@ char	*extract_nb(char *str ,int start)//works
 	i = 0;
 	nb = malloc(ft_strlen(&str[start]) + 1 *(sizeof(char)));
 	if (!nb || !str)
-		return(NULL);
+		return (NULL);
 	while (str[start] != ' ' && str[start] != '\t' && str[start] != '\0')
 		nb[i++] = str[start++];
 	nb[i] = '\0';
-	return(nb);
+	return (nb);
 }
 
-IntArr create_stack_a(char *str)
+IntArr	create_stack_a(char *str)
 {
-    int i = 0;
-    int j = 0;
-    IntArr stack_a;
+	int		i;
+	int		j;
+	IntArr	stack_a;
+	char	*nb;
 
-    stack_a.array = NULL;
-    stack_a.size = 0;
-
-    
-    stack_a.array = (int *)calloc(count_nb(str), sizeof(int));
-    if (!stack_a.array) {
-        return stack_a; 
-    }
-    while (str[i])
+	i = 0;
+	j = 0;
+	stack_a.array = NULL;
+	stack_a.size = 0;
+	stack_a.array = (int *)calloc(count_nb(str), sizeof(int));
+	if (!stack_a.array)
+		return (stack_a);
+	while (str[i])
 	{
-		if (str[i] == '\t' || str[i] == ' ' || str[i] == '\n') {
+		if (str[i] == '\t' || str[i] == ' ' || str[i] == '\n')
 			i++;
-	} 
 		else if (str[i] != '\t' && str[i] != ' ' && str[i] != '\n')
 		{
-            stack_a.array[j] = ft_atoi(extract_nb(str, i));
-            j++;
-            i = i + ft_strlen_mod(&str[i]);
-        }
-    }
-    stack_a.size = j; 
-    return stack_a;
+			nb = extract_nb(str, i);
+			stack_a.array[j] = ft_atoi(nb);
+			free(nb);
+			j++;
+			i = i + ft_strlen_mod(&str[i]);
+		}
+	}
+	stack_a.size = j;
+	return (stack_a);
 }
 
-
-
-IntArr create_stack_b(void) //works
+IntArr	create_stack_b(void) //works
 {
-	IntArr stack_b;
+	IntArr	stack_b;
 
-    stack_b.array = NULL;
-    stack_b.size = 0;
-
+	stack_b.array = NULL;
+	stack_b.size = 0;
 	stack_b.array = (int *)malloc(sizeof(int));
-	if(!stack_b.array)
-		return (stack_b);	
+	if (!stack_b.array)
+		return (stack_b);
 	return (stack_b);
 }
 
@@ -104,14 +103,13 @@ int	check_size(int *stack)//works
 {
 	int	i;
 	int	count;
-	
+
 	i = 0;
 	count = 0;
-	while(stack[i])
-	{	
+	while (stack[i])
+	{
 		i++;
 		count++;
 	}
-	return(count);
-	
+	return (count);
 }

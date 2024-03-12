@@ -6,13 +6,13 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 13:42:14 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/02/17 15:29:38 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/12 16:18:16 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int find_max(IntArr *stack)
+int	find_max(IntArr *stack)
 {
 	int	max;
 	int	index;
@@ -31,20 +31,6 @@ int find_max(IntArr *stack)
 	}
 	return (max);
 }
-// int	find_max_index(IntArr *stack)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (i < stack->size)
-// 	{
-// 		if(stack->array[i] == find_max(stack))
-// 			return (i);
-// 		i++;
-// 	}
-// 	return (-1);
-	
-// }
 
 int	find_min(IntArr *stack)
 {
@@ -66,22 +52,7 @@ int	find_min(IntArr *stack)
 	return (min);
 }
 
-// int	find_min_index(IntArr *stack)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (i < stack->size)
-// 	{
-// 		if(stack->array[i] == find_min(stack))
-// 			return (i);
-// 		i++;
-// 	}
-// 	return (-1);
-	
-// }
-
-int stack_is_sorted(IntArr *stack)
+int	stack_is_sorted(IntArr *stack)
 {
 	int	previous_element;
 	int	sorted;
