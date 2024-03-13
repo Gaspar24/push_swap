@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 12:57:27 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:46:02 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:16:13 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,15 +104,11 @@ int	is_space(char c)
 
 int	validate_input(char *str)
 {
-	int	i;
-	int	digit_count;
-	int	has_minus;
-	int	has_digit;
+	int i = 0;
+	int digit_count = 0;
+	int has_minus = 0;
+	int has_digit = 0;
 
-	i = 0;
-	digit_count = 0;
-	has_digit = 0;
-	has_minus = 0;
 	if (!check_for_doubles(str))
 		return (0);
 	while (str[i])
@@ -132,17 +128,18 @@ int	validate_input(char *str)
 			has_minus = 1;
 		else if (is_space(str[i]))
 		{
-			if (digit_count == 0 && !has_digit && !has_minus)
-				return (0);
-			digit_count = 0;
-			has_minus = 0;
-			has_digit = 0;
+			if (digit_count > 0 || has_digit || has_minus)
+			{
+				digit_count = 0;
+				has_minus = 0;
+				has_digit = 0;
+			}
 		}
 		else
 			return (0);
 		i++;
 	}
-	if (digit_count == 0 && !has_digit && !has_minus)
+	if (digit_count == 0 && !has_digit && !has_minus && str[i - 1] != ' ')
 		return (0);
 	return (1);
 }

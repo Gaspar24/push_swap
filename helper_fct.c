@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 11:06:47 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:15:34 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:19:19 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,12 @@ int	ft_strlen_mod(char *str)
 	return (i);
 }
 
-IntArr	*expand_stack(IntArr *stack)
+t_IntArr	*expand_stack(t_IntArr *stack)
 {
-	int		i;
-	IntArr	*new_stack;
+	int			i;
+	t_IntArr	*new_stack;
 
-	new_stack = malloc(sizeof(IntArr));
+	new_stack = malloc(sizeof(t_IntArr));
 	if (!new_stack)
 		return (NULL);
 	i = 0;
@@ -81,13 +81,13 @@ IntArr	*expand_stack(IntArr *stack)
 	return (new_stack);
 }
 
-IntArr	*delete_index(IntArr *stack)
+t_IntArr	*delete_index(t_IntArr *stack)
 {
-	int		i;
-	int		j;
-	IntArr	*new_stack;
+	int			i;
+	int			j;
+	t_IntArr	*new_stack;
 
-	new_stack = malloc(sizeof(IntArr));
+	new_stack = malloc(sizeof(t_IntArr));
 	if (!new_stack)
 		return (NULL);
 	i = 1;

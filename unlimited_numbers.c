@@ -6,17 +6,17 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:37:06 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:32:01 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:18:56 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-IntArr	generate_sorted_a(IntArr *stack_a)
+t_IntArr	generate_sorted_a(t_IntArr *stack_a)
 {
-	IntArr	sorted_a;
-	int		index;
-	int		*sorted_a_array;
+	t_IntArr	sorted_a;
+	int			index;
+	int			*sorted_a_array;
 
 	sorted_a_array = malloc(sizeof(int) * stack_a->size);
 	sorted_a.array = sorted_a_array;
@@ -32,7 +32,7 @@ IntArr	generate_sorted_a(IntArr *stack_a)
 	return (sorted_a);
 }
 
-int	in_the_lowest_chunk(int a_elem, IntArr sorted_a, int chunk_size)
+int	in_the_lowest_chunk(int a_elem, t_IntArr sorted_a, int chunk_size)
 {
 	int	in_chunk;
 	int	index;
@@ -51,10 +51,10 @@ int	in_the_lowest_chunk(int a_elem, IntArr sorted_a, int chunk_size)
 	return (in_chunk);
 }
 
-int	divide_and_push_to_b(IntArr *stack_a, IntArr *stack_b, int chunk_size)
+int	divide_and_push_to_b(t_IntArr *stack_a, t_IntArr *stack_b, int chunk_size)
 {
-	int		count;
-	IntArr	sorted_a;
+	int			count;
+	t_IntArr	sorted_a;
 
 	sorted_a = generate_sorted_a(stack_a);
 	count = 0;
@@ -70,8 +70,8 @@ int	divide_and_push_to_b(IntArr *stack_a, IntArr *stack_b, int chunk_size)
 	return (count);
 }
 
-void	push_rest_to_a(IntArr *stack_a,
-		IntArr *stack_b, int total_size, int chunk_size)
+void	push_rest_to_a(t_IntArr *stack_a,
+		t_IntArr *stack_b, int total_size, int chunk_size)
 {
 	int	iterations;
 	int	left_in_chunk;
@@ -91,7 +91,7 @@ void	push_rest_to_a(IntArr *stack_a,
 	}
 }
 
-void	unlimited_numbers(IntArr *stack_a, IntArr *stack_b)
+void	unlimited_numbers(t_IntArr *stack_a, t_IntArr *stack_b)
 {
 	int	last_chunk_size;
 	int	chunk_size;

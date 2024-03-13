@@ -6,13 +6,13 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 14:26:59 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:33:46 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:12:31 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_index(IntArr *stack, int elem)
+int	get_index(t_IntArr *stack, int elem)
 {
 	int	index;
 
@@ -22,7 +22,7 @@ int	get_index(IntArr *stack, int elem)
 	return (index);
 }
 
-void	move_to_a(IntArr *stack_a, int index)
+void	move_to_a(t_IntArr *stack_a, int index)
 {
 	int	dist_up;
 	int	dist_down;
@@ -47,7 +47,7 @@ void	move_to_a(IntArr *stack_a, int index)
 	}
 }
 
-void	move_to_b(IntArr *stack_b, int index)
+void	move_to_b(t_IntArr *stack_b, int index)
 {
 	int	dist_up;
 	int	dist_down;
@@ -72,7 +72,7 @@ void	move_to_b(IntArr *stack_b, int index)
 	}
 }
 
-int	get_next_smallest(IntArr *stack, int smallest)
+int	get_next_smallest(t_IntArr *stack, int smallest)
 {
 	int	i;
 	int	next_smallest;

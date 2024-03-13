@@ -6,13 +6,13 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:13:47 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:49:05 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:03:03 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(IntArr *stack_a) //Works
+void	sa(t_IntArr *stack_a) //Works
 {
 	int	temp;
 
@@ -25,11 +25,11 @@ void	sa(IntArr *stack_a) //Works
 	}
 }
 
-void	pa(IntArr *stack_a, IntArr *stack_b)
+void	pa(t_IntArr *stack_a, t_IntArr *stack_b)
 {
-	int		i;
-	IntArr	*new_stack_b;
-	IntArr	*new_stack_a;
+	int			i;
+	t_IntArr	*new_stack_b;
+	t_IntArr	*new_stack_a;
 
 	if (stack_b->size > 0)
 	{
@@ -58,7 +58,7 @@ void	pa(IntArr *stack_a, IntArr *stack_b)
 	}
 }
 
-void	ra(IntArr *stack_a)
+void	ra(t_IntArr *stack_a)
 {
 	int	i;
 	int	first_elem;
@@ -77,7 +77,7 @@ void	ra(IntArr *stack_a)
 	}
 }
 
-void	rra(IntArr *stack_a)
+void	rra(t_IntArr *stack_a)
 {
 	int	i;
 	int	last_elem;

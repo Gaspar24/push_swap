@@ -6,13 +6,13 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 16:53:23 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:33:23 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:12:23 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ss(IntArr *stack_a, IntArr *stack_b)
+void	ss(t_IntArr *stack_a, t_IntArr *stack_b)
 {
 	int	temp;
 
@@ -28,7 +28,7 @@ void	ss(IntArr *stack_a, IntArr *stack_b)
 	}
 }
 
-void	rr(IntArr *stack_a, IntArr *stack_b)
+void	rr(t_IntArr *stack_a, t_IntArr *stack_b)
 {
 	int	i;
 	int	first_elem;
@@ -55,7 +55,7 @@ void	rr(IntArr *stack_a, IntArr *stack_b)
 	}
 }
 
-void	rrr(IntArr *stack_a, IntArr *stack_b)
+void	rrr(t_IntArr *stack_a, t_IntArr *stack_b)
 {
 	int	i;
 	int	last_elem;

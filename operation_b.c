@@ -6,13 +6,13 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:13:53 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:48:55 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:17:25 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb(IntArr *stack_b) //Works
+void	sb(t_IntArr *stack_b) //Works
 {
 	int	temp;
 
@@ -25,11 +25,11 @@ void	sb(IntArr *stack_b) //Works
 	}
 }
 
-void	pb(IntArr *stack_a, IntArr *stack_b)
+void	pb(t_IntArr *stack_a, t_IntArr *stack_b)
 {
-	int		i;
-	IntArr	*new_stack_b;
-	IntArr	*new_stack_a;
+	int			i;
+	t_IntArr	*new_stack_b;
+	t_IntArr	*new_stack_a;
 
 	if (stack_a->size > 0)
 	{
@@ -58,7 +58,7 @@ void	pb(IntArr *stack_a, IntArr *stack_b)
 	}
 }
 
-void	rb(IntArr *stack_b)
+void	rb(t_IntArr *stack_b)
 {
 	int	i;
 	int	first_elem;
@@ -77,7 +77,7 @@ void	rb(IntArr *stack_b)
 	}
 }
 
-void	rrb(IntArr *stack_b)
+void	rrb(t_IntArr *stack_b)
 {
 	int	i;
 	int	last_elem;

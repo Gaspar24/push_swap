@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:39:08 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:31:43 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 13:06:49 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ char	*extract_nb(char *str, int start)//works
 	return (nb);
 }
 
-IntArr	create_stack_a(char *str)
+t_IntArr	create_stack_a(char *str)
 {
-	int		i;
-	int		j;
-	IntArr	stack_a;
-	char	*nb;
+	int			i;
+	int			j;
+	t_IntArr	stack_a;
+	char		*nb;
 
 	i = 0;
 	j = 0;
@@ -87,9 +87,9 @@ IntArr	create_stack_a(char *str)
 	return (stack_a);
 }
 
-IntArr	create_stack_b(void) //works
+t_IntArr	create_stack_b(void) //works
 {
-	IntArr	stack_b;
+	t_IntArr	stack_b;
 
 	stack_b.array = NULL;
 	stack_b.size = 0;

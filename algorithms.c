@@ -6,13 +6,13 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 14:28:58 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/12 16:13:10 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/13 11:12:40 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	two_numbers(IntArr *stack)
+void	two_numbers(t_IntArr *stack)
 {
 	if (stack->array[0] < stack->array[1])
 		return ;
@@ -20,7 +20,7 @@ void	two_numbers(IntArr *stack)
 		sa(stack);
 }
 
-void	three_numbers(IntArr *stack_a)
+void	three_numbers(t_IntArr *stack_a)
 {
 	if (stack_a->array[0] > stack_a->array[1]
 		&& stack_a->array[1] > stack_a->array[2])
@@ -49,7 +49,7 @@ void	three_numbers(IntArr *stack_a)
 	}
 }
 
-void	five_numbers(IntArr *stack_a, IntArr *stack_b)
+void	five_numbers(t_IntArr *stack_a, t_IntArr *stack_b)
 {
 	int	min_a;
 	int	max_a;
