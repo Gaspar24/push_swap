@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 15:39:08 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/13 13:06:49 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/16 11:41:35 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,26 @@ char	*extract_nb(char *str, int start)//works
 	return (nb);
 }
 
-t_IntArr	create_stack_a(char *str)
+t_IntArr	init_stack_a(char *str)
 {
-	int			i;
-	int			j;
 	t_IntArr	stack_a;
-	char		*nb;
 
-	i = 0;
-	j = 0;
 	stack_a.array = NULL;
 	stack_a.size = 0;
 	stack_a.array = (int *)calloc(count_nb(str), sizeof(int));
 	if (!stack_a.array)
 		return (stack_a);
+	return (stack_a);
+}
+
+void	assign_numbers(t_IntArr *stack_a, char *str)
+{
+	int		i;
+	int		j;
+	char	*nb;
+
+	i = 0;
+	j = 0;
 	while (str[i])
 	{
 		if (str[i] == '\t' || str[i] == ' ' || str[i] == '\n')
@@ -77,39 +83,21 @@ t_IntArr	create_stack_a(char *str)
 		else if (str[i] != '\t' && str[i] != ' ' && str[i] != '\n')
 		{
 			nb = extract_nb(str, i);
-			stack_a.array[j] = ft_atoi(nb);
+			stack_a->array[j] = ft_atoi(nb);
 			free(nb);
 			j++;
 			i = i + ft_strlen_mod(&str[i]);
 		}
 	}
-	stack_a.size = j;
+	stack_a->size = j;
+}
+
+t_IntArr	create_stack_a(char *str)
+{
+	t_IntArr	stack_a;
+
+	stack_a = init_stack_a(str);
+	if (stack_a.array != NULL)
+		assign_numbers(&stack_a, str);
 	return (stack_a);
-}
-
-t_IntArr	create_stack_b(void) //works
-{
-	t_IntArr	stack_b;
-
-	stack_b.array = NULL;
-	stack_b.size = 0;
-	stack_b.array = (int *)malloc(sizeof(int));
-	if (!stack_b.array)
-		return (stack_b);
-	return (stack_b);
-}
-
-int	check_size(int *stack)//works
-{
-	int	i;
-	int	count;
-
-	i = 0;
-	count = 0;
-	while (stack[i])
-	{
-		i++;
-		count++;
-	}
-	return (count);
 }

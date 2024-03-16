@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:13:53 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/13 11:17:25 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/16 11:28:59 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,34 @@ void	sb(t_IntArr *stack_b) //Works
 	}
 }
 
-void	pb(t_IntArr *stack_a, t_IntArr *stack_b)
+void	expand_and_shift_b(t_IntArr *stack_b, int first_element)
 {
 	int			i;
 	t_IntArr	*new_stack_b;
+
+	new_stack_b = expand_stack(stack_b);
+	if (!new_stack_b)
+		return ;
+	free(stack_b->array);
+	stack_b->array = new_stack_b->array;
+	stack_b->size = new_stack_b->size;
+	free(new_stack_b);
+	i = stack_b->size - 1;
+	while (i > 0)
+	{
+		stack_b->array[i] = stack_b->array[i - 1];
+		i--;
+	}
+	stack_b->array[0] = first_element;
+}
+
+void	pb(t_IntArr *stack_a, t_IntArr *stack_b)
+{
 	t_IntArr	*new_stack_a;
 
 	if (stack_a->size > 0)
 	{
-		new_stack_b = expand_stack(stack_b);
-		if (!new_stack_b)
-			return ;
-		free(stack_b->array);
-		stack_b->array = new_stack_b->array;
-		stack_b->size = new_stack_b->size;
-		free(new_stack_b);
-		i = stack_b->size - 1;
-		while (i > 0)
-		{
-			stack_b->array[i] = stack_b->array[i - 1];
-			i--;
-		}
-		stack_b->array[0] = stack_a->array[0];
+		expand_and_shift_b(stack_b, stack_a->array[0]);
 		new_stack_a = delete_index(stack_a);
 		if (!new_stack_a)
 			return ;
@@ -57,6 +63,39 @@ void	pb(t_IntArr *stack_a, t_IntArr *stack_b)
 		ft_printf("pb\n");
 	}
 }
+
+// void	pb(t_IntArr *stack_a, t_IntArr *stack_b)
+// {
+// 	int			i;
+// 	t_IntArr	*new_stack_b;
+// 	t_IntArr	*new_stack_a;
+
+// 	if (stack_a->size > 0)
+// 	{
+// 		new_stack_b = expand_stack(stack_b);
+// 		if (!new_stack_b)
+// 			return ;
+// 		free(stack_b->array);
+// 		stack_b->array = new_stack_b->array;
+// 		stack_b->size = new_stack_b->size;
+// 		free(new_stack_b);
+// 		i = stack_b->size - 1;
+// 		while (i > 0)
+// 		{
+// 			stack_b->array[i] = stack_b->array[i - 1];
+// 			i--;
+// 		}
+// 		stack_b->array[0] = stack_a->array[0];
+// 		new_stack_a = delete_index(stack_a);
+// 		if (!new_stack_a)
+// 			return ;
+// 		free(stack_a->array);
+// 		stack_a->array = new_stack_a->array;
+// 		stack_a->size = new_stack_a->size;
+// 		free(new_stack_a);
+// 		ft_printf("pb\n");
+// 	}
+// }
 
 void	rb(t_IntArr *stack_b)
 {

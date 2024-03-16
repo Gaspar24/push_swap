@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:24:03 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/13 11:12:05 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/16 12:50:14 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ typedef struct t_IntArr
 	int	index;
 }	t_IntArr;
 
+typedef struct t_ValidationState
+{
+	int	i;
+	int	digit_count;
+	int	has_minus;
+	int	has_digit;
+}	t_ValidationState;
+
 int			validate_input(char *str);
 int			count_nb(char *str);
 int			ft_atoi(char *str);
@@ -36,6 +44,8 @@ t_IntArr	create_stack_a(char *str);
 char		*extract_nb(char *str, int start);
 t_IntArr	create_stack_b(void);
 int			check_size(int *stack);
+int			is_space(char c);
+int			is_digit(char c);
 t_IntArr	*expand_stack(t_IntArr *stack);
 t_IntArr	*delete_index(t_IntArr *stack);
 int			get_index(t_IntArr *stack, int elem);

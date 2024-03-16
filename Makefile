@@ -6,7 +6,7 @@
 #    By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 10:59:27 by msacaliu          #+#    #+#              #
-#    Updated: 2024/03/12 17:05:06 by msacaliu         ###   ########.fr        #
+#    Updated: 2024/03/16 11:38:04 by msacaliu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ FT_PRINTF = ./lib/libftprintf/libftprintf.a
 PRINTF_DIR =./lib/libftprintf
 
 SRC = main.c utils.c helper_fct.c input_validation.c operation_a.c operation_b.c \
-	a_and_b_operations.c algorithms.c min_max.c unlimited_numbers.c algorithm_utils.c
+	a_and_b_operations.c algorithms.c min_max.c unlimited_numbers.c algorithm_utils.c \
+	utils2.0.c
 
 all : $(NAME)
 

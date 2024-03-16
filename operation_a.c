@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 15:13:47 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/13 13:03:03 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/16 11:29:19 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,28 +25,34 @@ void	sa(t_IntArr *stack_a) //Works
 	}
 }
 
-void	pa(t_IntArr *stack_a, t_IntArr *stack_b)
+void	handle_stack_a(t_IntArr *stack_a, int first_element)
 {
 	int			i;
-	t_IntArr	*new_stack_b;
 	t_IntArr	*new_stack_a;
+
+	new_stack_a = expand_stack(stack_a);
+	if (!new_stack_a)
+		return ;
+	free(stack_a->array);
+	stack_a->array = new_stack_a->array;
+	stack_a->size = new_stack_a->size;
+	free(new_stack_a);
+	i = stack_a->size - 1;
+	while (i > 0)
+	{
+		stack_a->array[i] = stack_a->array[i - 1];
+		i--;
+	}
+	stack_a->array[0] = first_element;
+}
+
+void	pa(t_IntArr *stack_a, t_IntArr *stack_b)
+{
+	t_IntArr	*new_stack_b;
 
 	if (stack_b->size > 0)
 	{
-		new_stack_a = expand_stack(stack_a);
-		if (!new_stack_a)
-			return ;
-		free(stack_a->array);
-		stack_a->array = new_stack_a->array;
-		stack_a->size = new_stack_a->size;
-		free(new_stack_a);
-		i = stack_a->size - 1;
-		while (i > 0)
-		{
-			stack_a->array[i] = stack_a->array[i - 1];
-			i--;
-		}
-		stack_a->array[0] = stack_b->array[0];
+		handle_stack_a(stack_a, stack_b->array[0]);
 		new_stack_b = delete_index(stack_b);
 		if (!new_stack_b)
 			return ;

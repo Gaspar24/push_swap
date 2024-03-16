@@ -6,11 +6,23 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 12:31:44 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/13 11:19:33 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/16 11:36:04 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_IntArr	create_stack_b(void) //works
+{
+	t_IntArr	stack_b;
+
+	stack_b.array = NULL;
+	stack_b.size = 0;
+	stack_b.array = (int *)malloc(sizeof(int));
+	if (!stack_b.array)
+		return (stack_b);
+	return (stack_b);
+}
 
 int	one_argument(t_IntArr *stack_a, t_IntArr *stack_b, char *str)
 {

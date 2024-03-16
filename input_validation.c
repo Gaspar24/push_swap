@@ -6,30 +6,21 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 12:57:27 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/13 13:16:13 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/16 12:10:35 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*create_str(int argc, char *argv[])
+char	*fill_string(int argc, char **argv, char *str)
 {
-	int		i;
-	char	*str;
-	int		total;
-	int		j;
-	int		k;
+	int	i;
+	int	j;
+	int	k;
 
+	i = 1;
+	j = 0;
 	k = 0;
-	i = 1;
-	total = 0;
-	while (i < argc)
-		total += ft_strlen(argv[i++]);
-	total += argc - 1;
-	str = malloc((total + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	i = 1;
 	while (i < argc)
 	{
 		j = 0;
@@ -41,6 +32,48 @@ char	*create_str(int argc, char *argv[])
 	}
 	str[k] = '\0';
 	return (str);
+}
+
+char	*create_str(int argc, char **argv)
+{
+	int		i;
+	char	*str;
+	int		total;
+
+	i = 1;
+	total = 0;
+	while (i < argc)
+		total += ft_strlen(argv[i++]);
+	total += argc - 1;
+	str = malloc((total + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	str = fill_string(argc, argv, str);
+	return (str);
+}
+
+int	check_for_duplicates(int *arr, int nb)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < nb)
+	{
+		j = i + 1;
+		while (j < nb)
+		{
+			if (arr[i] == arr[j])
+			{
+				free(arr);
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	free(arr);
+	return (1);
 }
 
 int	check_for_doubles(char *str)
@@ -69,77 +102,20 @@ int	check_for_doubles(char *str)
 				|| str[i] == '-' || str[i] == '+'))
 			i++;
 	}
+	return (check_for_duplicates(arr, nb));
+}
+
+int	check_size(int *stack)//works
+{
+	int	i;
+	int	count;
+
 	i = 0;
-	while (i < nb)
+	count = 0;
+	while (stack[i])
 	{
-		j = i + 1;
-		while (j < nb)
-		{
-			if (arr[i] == arr[j])
-			{
-				free(arr);
-				return (0);
-			}
-			j++;
-		}
 		i++;
+		count++;
 	}
-	free(arr);
-	return (1);
-}
-
-int	is_digit(char c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int	is_space(char c)
-{
-	if (c == ' ' || c == '\t')
-		return (1);
-	return (0);
-}
-
-int	validate_input(char *str)
-{
-	int i = 0;
-	int digit_count = 0;
-	int has_minus = 0;
-	int has_digit = 0;
-
-	if (!check_for_doubles(str))
-		return (0);
-	while (str[i])
-	{
-		if (is_digit(str[i]))
-		{
-			if (str[i] == '0' && digit_count == 0 && has_digit)
-				return (0);
-			if (str[i] == '0' && digit_count == 0
-				&& str[i + 1] != ' ' && str[i + 1] != '\0')
-				return (0);
-			digit_count++;
-			has_digit = 1;
-		}
-		else if ((str[i] == '-' || str[i] == '+')
-			&& (i == 0 || (i > 0 && str[i - 1] == ' ')))
-			has_minus = 1;
-		else if (is_space(str[i]))
-		{
-			if (digit_count > 0 || has_digit || has_minus)
-			{
-				digit_count = 0;
-				has_minus = 0;
-				has_digit = 0;
-			}
-		}
-		else
-			return (0);
-		i++;
-	}
-	if (digit_count == 0 && !has_digit && !has_minus && str[i - 1] != ' ')
-		return (0);
-	return (1);
+	return (count);
 }
