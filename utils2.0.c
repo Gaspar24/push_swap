@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/16 11:38:08 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/16 12:49:53 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/17 11:20:49 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,16 @@ int	validate_spaces_and_signs(char *str, t_ValidationState *state)
 	if ((str[state->i] == '-' || str[state->i] == '+')
 		&& (state->i == 0 || (state->i > 0 && str[state->i - 1] == ' ')))
 		state->has_minus = 1;
-	else if (is_space(str[state->i]) && (state->digit_count > 0
-			|| state->has_digit || state->has_minus))
+	else if (is_space(str[state->i]))
 	{
-		state->digit_count = 0;
-		state->has_minus = 0;
-		state->has_digit = 0;
+		if (state->digit_count > 0 || state->has_digit || state->has_minus)
+		{
+			state->digit_count = 0;
+			state->has_minus = 0;
+			state->has_digit = 0;
+		}
+		while (is_space(str[state->i + 1]))
+			state->i++;
 	}
 	else
 		return (0);
@@ -61,7 +65,7 @@ int	validate_input(char *str)
 
 	state.digit_count = 0;
 	state.has_digit = 0;
-	state.digit_count = 0;
+	state.has_minus = 0;
 	state.i = 0;
 	if (!check_for_doubles(str))
 		return (0);
