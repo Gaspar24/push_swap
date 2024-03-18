@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:24:03 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/16 12:50:14 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/18 14:28:57 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ t_IntArr	*expand_stack(t_IntArr *stack);
 t_IntArr	*delete_index(t_IntArr *stack);
 int			get_index(t_IntArr *stack, int elem);
 int			stack_is_sorted(t_IntArr *stack);
-int			get_index(t_IntArr *stack, int elem);
 int			get_next_smallest(t_IntArr *stack, int smallest);
 void		move_to_b(t_IntArr *stack_b, int index);
 void		move_to_a(t_IntArr *stack_a, int index);
@@ -71,5 +70,11 @@ void		two_numbers(t_IntArr *stack);
 void		three_numbers(t_IntArr *stack_a);
 void		five_numbers(t_IntArr *stack_a, t_IntArr *stack_b);
 void		unlimited_numbers(t_IntArr *stack_a, t_IntArr *stack_b);
+t_IntArr 	sort_test(t_IntArr *stack);
+int			get_midpoint(t_IntArr *stack);
+
+// t_IntArr	generate_sorted_a(t_IntArr *stack_a);
+
+
 
 #endif
