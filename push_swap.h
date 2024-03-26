@@ -6,7 +6,7 @@
 /*   By: msacaliu <msacaliu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 13:24:03 by msacaliu          #+#    #+#             */
-/*   Updated: 2024/03/18 14:28:57 by msacaliu         ###   ########.fr       */
+/*   Updated: 2024/03/24 12:00:49 by msacaliu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,6 @@ void		two_numbers(t_IntArr *stack);
 void		three_numbers(t_IntArr *stack_a);
 void		five_numbers(t_IntArr *stack_a, t_IntArr *stack_b);
 void		unlimited_numbers(t_IntArr *stack_a, t_IntArr *stack_b);
-t_IntArr 	sort_test(t_IntArr *stack);
-int			get_midpoint(t_IntArr *stack);
-
-// t_IntArr	generate_sorted_a(t_IntArr *stack_a);
-
-
+t_IntArr	generate_sorted_a(t_IntArr *stack_a);
 
 #endif
