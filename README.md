@@ -145,7 +145,5 @@ If the checker_OS program outputs OK, the sorting is successful.
 Conclusion
 The Push_Swap project taught me the importance of algorithmic thinking, memory management, and efficiency. Despite the challenges of using arrays for stacks, I successfully implemented a robust solution that meets the required benchmarks. This project has deepened my understanding of sorting algorithms and their practical applications.
 
-css
-Copy code
 
 This README provides a clear overview of your project, highlights what you learned, and details how you overcame specific challenges. Let me know if you need further refinements!
